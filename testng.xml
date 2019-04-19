@@ -1,0 +1,59 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Apache">
+    <test name="StringUtils">
+        <groups>
+            <run>
+                <include name="string"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="ApacheCommonsTest"/>
+        </classes>
+    </test>
+    <test name="ArrayUtils">
+        <groups>
+            <run>
+                <include name="array"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="ApacheCommonsTest"/>
+        </classes>
+    </test>
+
+    <test name="NumberUtils">
+        <groups>
+            <run>
+                <include name="number"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="ApacheCommonsTest"/>
+        </classes>
+    </test>
+
+    <test name="MutablePair">
+        <groups>
+            <run>
+                <include name="pair"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="ApacheCommonsTest"/>
+        </classes>
+    </test>
+
+    <test name="Triple">
+        <groups>
+            <run>
+                <include name="triple"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="ApacheCommonsTest"/>
+        </classes>
+    </test>
+
+</suite>
