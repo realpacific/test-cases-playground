@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Vavr Tests">
+    <test name="Try">
+        <groups>
+            <run>
+                <include name="try"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="VavrTest"/>
+        </classes>
+    </test>
+
+    <test name="Lazy">
+        <groups>
+            <run>
+                <include name="lazy"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="VavrTest"/>
+        </classes>
+    </test>
+
+    <test name="Option + Function + collection">
+        <groups>
+            <run>
+                <include name="option"/>
+                <include name="collection"/>
+                <include name="function"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="VavrTest"/>
+        </classes>
+    </test>
+</suite>
