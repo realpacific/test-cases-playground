@@ -4,13 +4,13 @@ import io.vavr.collection.List;
 import io.vavr.control.Option;
 import io.vavr.control.Try;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.Random;
+import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -70,5 +70,27 @@ public class VavrTest {
         Lazy<Double> lazy = Lazy.of(Math::random);
         assertThat(lazy.isEvaluated()).isFalse();
         assertThat(lazy.get()).isNotNull();
+    }
+
+    @Test
+    public void testForMapOfList() {
+        Map<String, java.util.List<String>> map = new HashMap<>();
+        map.put("x", new ArrayList<>());
+        map.get("x").add("Hello");
+        map.get("x").add("World");
+        map.get("x").add("How you");
+
+        assertThat(map.get("x")).isEqualTo(Arrays.asList("Hello", "World", "How you"));
+
+        map.get("x").add("Hello");
+        map.get("x").add("Hello");
+        assertThat(map.get("x")).hasSize(5);
+
+
+        map.get("x").add("Hello");
+        map.get("x").add("Hello");
+        java.util.List<String> l = map.get("x").stream().distinct().collect(Collectors.toList());
+        assertThat(l).hasSize(3);
+
     }
 }
