@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SuppressWarnings("SingleStatementInBlock")
 public class VavrTest {
 
 
@@ -91,6 +92,16 @@ public class VavrTest {
         map.get("x").add("Hello");
         java.util.List<String> l = map.get("x").stream().distinct().collect(Collectors.toList());
         assertThat(l).hasSize(3);
+    }
 
+
+    @Test
+    public void testForIterator() {
+        java.util.List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+        Iterator<Integer> it = list.iterator();
+        while (it.hasNext()) {
+            if (it.next() % 2 == 0) it.remove();
+        }
+        assertThat(list).hasSize(5);
     }
 }
